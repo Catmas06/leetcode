@@ -3,16 +3,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<malloc.h>
-/*
-int cmp(const void* a, const void* b) {
+
+int cmp3(const void* a, const void* b) {
 	return *(int*)a - *(int*)b;
-}*/
+}
 int** threeSum3(int* nums, int numsSize, int* returnSize, int** returnColumnSizes) {
 	printf("numsSize = %d\n", numsSize);
 	*returnSize = 0;
 	if (numsSize < 3)
 		return NULL;
-	//qsort(nums, numsSize, sizeof(int), cmp);
+	qsort(nums, numsSize, sizeof(int), cmp3);
 	int size = numsSize;
 	int** ans = (int**)malloc(sizeof(int*) * size * size);
 	*returnColumnSizes = (int*)malloc(sizeof(int) * size * size);
