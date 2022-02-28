@@ -1,0 +1,3 @@
+# leetcode
+leetcode刷题记录
+每个文件夹下的_f文件都是可过leetcode的最终版本，尽量避免暴力解法
