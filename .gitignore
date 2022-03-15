@@ -8,3 +8,5 @@ Debug
 *.filters
 *.sln
 *.user
+*.json
+*.out
