@@ -6,13 +6,13 @@
     ret 最后一位由 x 第一位决定，x 第一位最大为2，则以上结果取相等时不会溢出
 */
 
-int reverse_f(int x)
+int reverse(int x)
 {
     if (!x)
         return 0;
     int ret = 0;
     //去掉十进制反转后开头的0
-    while (x % 10)
+    while (x % 10 == 0)
     {
         x /= 10;
     }
@@ -26,4 +26,12 @@ int reverse_f(int x)
     }
     //无异常则完成反转
     return ret;
+}
+
+// int reverse_f(int x);
+int main()
+{ //-2147483648 <= i <= 2147483647
+    int i = 123;
+    int j = reverse(i);
+    return 0;
 }
