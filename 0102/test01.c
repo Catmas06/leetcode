@@ -3,6 +3,7 @@
     思想
         - 将当前访问的节点入队尾
         - 每次将队头节点出队，访问，并将左右节点入队尾
+        - 手写队列
 */
 #include <stdbool.h>
 #include <stdlib.h>
@@ -14,23 +15,25 @@ struct TreeNode
     struct TreeNode *right;
 };
 
+//声明联合体，队头节点用来保存长度，其他队列节点用来保存元素，即二叉树节点指针
 union UN
 {
     int length;
     struct TreeNode *node;
 };
+//创建队列节点结构体
 struct queenNode
 {
     union UN key;
     struct queenNode *next;
 };
-
+//创建队伍结构体，包含队头指针与队尾指针
 struct Queen
 {
     struct queenNode *head;
     struct queenNode *tail;
 } Queen;
-
+//入队函数
 void insertQueen(struct TreeNode *root)
 {
     if (!root)
@@ -43,7 +46,7 @@ void insertQueen(struct TreeNode *root)
     Queen.tail = Queen.tail->next;
     return;
 }
-
+//创始化队伍函数
 void initQueen()
 {
     Queen.head = malloc(sizeof(struct queenNode));
@@ -51,7 +54,7 @@ void initQueen()
     Queen.head->key.length = 0;
     Queen.tail = Queen.head;
 }
-
+//出队函数
 int popQueen()
 {
     // if (isNull)
@@ -63,7 +66,7 @@ int popQueen()
     free(tmp);
     return ret;
 }
-
+//判断队列是否为空（未用到）
 bool isNull()
 {
     if (Queen.head->next == Queen.tail)
@@ -71,7 +74,7 @@ bool isNull()
     else
         return false;
 }
-
+//层序遍历函数
 int **levelOrder(struct TreeNode *root, int *returnSize, int **returnColumnSizes)
 {
     *returnSize = 0;
@@ -107,6 +110,7 @@ int **levelOrder(struct TreeNode *root, int *returnSize, int **returnColumnSizes
     return ret;
 }
 
+//测试用主函数
 int main()
 {
     struct TreeNode *r1 = malloc(sizeof(struct TreeNode));
