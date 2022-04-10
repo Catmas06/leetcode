@@ -9,30 +9,26 @@
 #include <stdbool.h>
 #include <string.h>
 
-bool rotateString(char *s, char *goal)
-{
-    int size = strlen(s);
-    if (strlen(goal) != size)
-    {
+bool rotateString( char* s, char* goal ) {
+    int size = strlen( s );
+    if ( strlen( goal ) != size ) {
         return false;
     }
     int i = 0, j = 0;
     int count = 0;
-    while (i < size)
-    {
+    while ( i < size ) {
         int temp = i;
-        while (count < size && *(s + (i % size)) == *(goal + j))
-        {
+        while ( count < size && *( s + ( i % size ) ) == *( goal + j ) ) {
             i++;
             j++;
             count++;
         }
         //失配
         count = 0;
-        j = 0;
-        i = temp + 1;
+        j     = 0;
+        i     = temp + 1;
     }
-    if (i == size)
+    if ( i == size )
         return false;
     else
         return true;
