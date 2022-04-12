@@ -8,7 +8,8 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 // "${fileDirname}/*.c", //编译当前文件夹下所有.c文件
-                "${file}", //仅编译当前文件
+                "${file}", // 仅编译当前文件
+                // "-lm", // 链接 math.h 库
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.out", //生成.out文件，方便过滤
                 //"-static-libgcc", // 静态链接libgcc，加快执行速度，但浪费空间
